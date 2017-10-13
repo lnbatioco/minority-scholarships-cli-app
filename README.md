@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run 'minority-scholarships-cli-app' after installing the gem and follow the onscreen prompts.
 
 ## Development
 

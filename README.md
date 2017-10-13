@@ -1,6 +1,6 @@
 # Minority Scholarships CLI App
 
-The Minority Scholarships CLI App is a ruby gem that lists scholarships available to minority students pursuing a higher education. This gem's information is based from `https://www.unigo.com/scholarships/minority`.
+The Minority Scholarships CLI App is a ruby gem that lists scholarships available to minority students pursuing a higher education. This gem's information is based from https://www.unigo.com/scholarships/minority.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Run 'minority-scholarships-cli-app' after installing the gem and follow the onscreen prompts.
+Run `minority-scholarships-cli-app` after installing the gem and follow the onscreen prompts.
 
 ## Development
 
@@ -30,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'loryleenbatioco-63276'/minority_scholarships_cli_app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/lnbatioco/minority-scholarships-cli-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

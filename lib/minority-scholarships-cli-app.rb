@@ -1,5 +1,6 @@
-require "minority-scholarships-cli-app/version"
+require "open-uri"# OUR ENVIRONMENT!
+require "nokogiri"
+require "pry"
 
-module MinorityScholarshipsCliApp
-  # Your code goes here...
-end
+require "minority-scholarships-cli-app/version"
+require "minority-scholarships-cli-app/cli"

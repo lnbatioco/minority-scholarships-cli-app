@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "minority-scholarships-cli-app"
+
+MinorityScholarshipsCliApp::CLI.new.call

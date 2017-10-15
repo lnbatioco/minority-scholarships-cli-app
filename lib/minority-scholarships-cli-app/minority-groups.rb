@@ -42,6 +42,8 @@ class MinorityScholarshipsCliApp::MinorityGroups
       puts "Deadline: #{scholarship.deadline}"
       puts "Info: #{scholarship.description}"
       puts "Link: #{scholarship.url}"
+      puts ""
+      puts ""
     end
   end
 

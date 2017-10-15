@@ -33,4 +33,16 @@ class MinorityScholarshipsCliApp::MinorityGroups
     @scholarships << scholarship
     scholarship.ethnicity = self
   end
-end ## class END
+
+  def scholarships
+    @scholarships.each.with_index(1) do |scholarship, index|
+      puts "[#{index}]"
+      puts "Name: #{scholarship.name.upcase}"
+      puts "Amount: #{scholarship.amount}"
+      puts "Deadline: #{scholarship.deadline}"
+      puts "Info: #{scholarship.description}"
+      puts "Link: #{scholarship.url}"
+    end
+  end
+
+end

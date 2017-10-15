@@ -1,4 +1,5 @@
 class MinorityScholarshipsCliApp::CLI
+
   def call
     puts ""
     puts "preparing scholarships..."
@@ -25,10 +26,24 @@ class MinorityScholarshipsCliApp::CLI
   end
 
   def menu
-    print_minority_groups
-    puts ""
-    puts "enter the number of the category you would like to view."
-    puts "enter 'exit' to end the program."
-    puts ""
+    input = nil
+    while input != "exit"
+      puts "------------------------------------------------------------------------"
+        print_minority_groups
+        puts ""
+        puts "enter the number of the category you would like to view."
+        puts "enter 'exit' to end the program."
+      puts "------------------------------------------------------------------------"
+
+      input = gets.strip.downcase
+      if input.to_i > 0 && input.to_i < 6
+        MinorityScholarshipsCliApp::MinorityGroups.all[input.to_i - 1].scholarships
+      elsif input == "exit"
+        puts "Goodbye!! Thank you for using the Minority Scholarships app!"
+      else
+        puts "INPUT ERROR. Please enter a different command."
+      end
+    end
   end
+
 end

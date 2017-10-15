@@ -1,11 +1,12 @@
 class MinorityScholarshipsCliApp::MinorityGroups
 
-  attr_accessor :name, :awards, :total, :description, :url
+  attr_accessor :name, :awards, :total, :description, :url, :scholarship
 
   @@all = []
 
   def initialize
     @@all << self
+    @scholarships = []
   end
 
   def self.all
@@ -26,5 +27,10 @@ class MinorityScholarshipsCliApp::MinorityGroups
     @@all.each.with_index(1) do |ethnicity, index|
       puts "[#{index}] #{ethnicity.name} - #{ethnicity.awards} Awards - #{ethnicity.total} Available"
     end
+  end
+
+  def add_scholarship(scholarship)
+    @scholarships << scholarship
+    scholarship.ethnicity = self
   end
 end ## class END

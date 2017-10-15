@@ -9,6 +9,15 @@ class MinorityScholarshipsCliApp::MinorityGroups
   end
 
   def self.all
+    self.delete_ads
+  end
+
+  def self.delete_ads
+    @@all.each do |ethnicity|
+      if ethnicity.name == ""
+        @@all.delete(ethnicity)
+      end
+    end
     @@all
   end
 

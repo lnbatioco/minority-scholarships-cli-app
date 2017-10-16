@@ -1,6 +1,7 @@
 require "open-uri"
 require "nokogiri"
 require "pry"
+require "colorize"
 
 require "minority-scholarships-cli-app/version"
 require "minority-scholarships-cli-app/cli"

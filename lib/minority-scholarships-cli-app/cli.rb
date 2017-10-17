@@ -6,7 +6,6 @@ class MinorityScholarshipsCliApp::CLI
     menu
   end
 
-
   def load_data
     puts ""
     puts "loading scholarships...".colorize(:blue)
@@ -15,14 +14,12 @@ class MinorityScholarshipsCliApp::CLI
     MinorityScholarshipsCliApp::Scraper.scrape_scholarships
   end
 
-
   def welcome
     puts "Welcome!"
     puts "Here is a list of scholarships offered to minority students."
     puts "Scholarship providers encourage ALL minority students to apply."
     puts ""
   end
-
 
   def menu
     input = nil
@@ -44,7 +41,6 @@ class MinorityScholarshipsCliApp::CLI
     end
   end
 
-
   def how_to_print_minority_groups(input = nil)
     if input == nil
       print_minority_groups(input)
@@ -56,13 +52,11 @@ class MinorityScholarshipsCliApp::CLI
     end
   end
 
-
   def print_minority_groups(input)
     MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
       puts "[#{index}] ".bold.colorize(:green) + "#{ethnicity.name}"
     end
   end
-
 
   def print_minority_groups_with_valid_input(input)
     MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
@@ -74,12 +68,10 @@ class MinorityScholarshipsCliApp::CLI
     end
   end
 
-
   def input_error
     puts ""
     puts "[!] ".bold.colorize(:red) + "INPUT ERROR. Please enter a different command.".colorize(:red)
   end
-
 
   def print_scholarships(input)
     MinorityScholarshipsCliApp::MinorityGroups.all[input.to_i - 1].scholarships.each.with_index(1) do |scholarship, index|
@@ -93,7 +85,6 @@ class MinorityScholarshipsCliApp::CLI
     end
   end
 
-
   def view_more_scholarships(input)
     if input.to_i > 0 && input.to_i < 6
       MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
@@ -106,7 +97,6 @@ class MinorityScholarshipsCliApp::CLI
       end
     end
   end
-
 
   def goodbye
     puts ""

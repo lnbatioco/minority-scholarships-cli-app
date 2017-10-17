@@ -24,12 +24,12 @@ class MinorityScholarshipsCliApp::CLI
   def print_minority_groups(input = nil)
     if input == nil
       MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
-        puts "[#{index}] ".colorize(:green) + "#{ethnicity.name}"
+        puts "[#{index}] ".bold.colorize(:green) + "#{ethnicity.name}"
       end
     elsif input.to_i > 0 && input.to_i < 6
       MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
         if index == input.to_i
-          puts "[x] ".colorize(:green) + "#{ethnicity.name} - #{ethnicity.awards} Awards Available - #{ethnicity.total} Total".colorize(:green)
+          puts "[x] #{ethnicity.name.upcase} - #{ethnicity.awards} AWARDS - #{ethnicity.total} TOTAL".bold.colorize(:green)
         else
           puts "[#{index}] #{ethnicity.name}"
         end
@@ -39,7 +39,7 @@ class MinorityScholarshipsCliApp::CLI
         puts "[#{index}] ".colorize(:green) + "#{ethnicity.name}"
       end
       puts ""
-      puts "[!] INPUT ERROR. Please enter a different command.".colorize(:red)
+      puts "[!] ".bold.colorize(:red) + "INPUT ERROR. Please enter a different command.".colorize(:red)
     end
   end
 
@@ -59,6 +59,7 @@ class MinorityScholarshipsCliApp::CLI
     if input.to_i > 0 && input.to_i < 6
       MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
         if index == input.to_i
+          puts ""
           puts "view more #{ethnicity.name} at:".colorize(:red)
           puts "#{ethnicity.url}".colorize(:blue)
           puts ""
@@ -78,12 +79,10 @@ class MinorityScholarshipsCliApp::CLI
     while input != "exit"
       display_next_page(input)
       puts "-------------------------------------------------------------------------"
-        puts ""
         print_minority_groups(input)
         puts ""
         puts "enter the number of the category you would like to view.".colorize(:blue)
         puts "enter 'exit' to end the program.".colorize(:blue)
-        puts ""
       puts "-------------------------------------------------------------------------"
 
       input = gets.strip.downcase

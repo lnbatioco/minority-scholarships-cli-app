@@ -15,6 +15,10 @@ class MinorityScholarshipsCliApp::CLI
   end
 
   def welcome
+    puts "--------------------------------------------------------------------------"
+    puts "                          MINORITY SCHOLARSHIPS                           ".bold
+    puts "--------------------------------------------------------------------------"
+    puts ""
     puts "Welcome!"
     puts "Here is a list of scholarships offered to minority students."
     puts "Scholarship providers encourage ALL minority students to apply."
@@ -25,12 +29,12 @@ class MinorityScholarshipsCliApp::CLI
     input = nil
     while input != "exit"
       view_more_scholarships(input)
-      puts "-------------------------------------------------------------------------"
+      puts "``` MENU `````````````````````````````````````````````````````````````````"
         how_to_print_minority_groups(input)
         puts ""
-        puts "enter the number of the category you would like to view.".colorize(:blue)
-        puts "enter 'exit' to end the program.".colorize(:blue)
-      puts "-------------------------------------------------------------------------"
+        puts "Enter the number of the category you would like to view.".colorize(:blue)
+        puts "Enter 'exit' to end the program.".colorize(:blue)
+      puts "``````````````````````````````````````````````````````````````````````````"
 
       input = gets.strip.downcase
       if input.to_i > 0 && input.to_i < 6
@@ -70,7 +74,7 @@ class MinorityScholarshipsCliApp::CLI
 
   def input_error
     puts ""
-    puts "[!] ".bold.colorize(:red) + "INPUT ERROR. Please enter a different command.".colorize(:red)
+    puts "[!] ".bold.colorize(:red) + "INVALID INPUT. Please try again.".colorize(:red)
   end
 
   def print_scholarships(input)
@@ -90,7 +94,7 @@ class MinorityScholarshipsCliApp::CLI
       MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
         if index == input.to_i
           puts ""
-          puts "view more #{ethnicity.name} at:".colorize(:red)
+          puts "View more #{ethnicity.name} at:".colorize(:red)
           puts "#{ethnicity.url}".colorize(:blue)
           puts ""
         end

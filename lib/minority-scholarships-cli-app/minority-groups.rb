@@ -14,9 +14,9 @@ class MinorityScholarshipsCliApp::MinorityGroups
   end
 
   def self.delete_ads
-    @@all.each do |ethnicity|
-      if ethnicity.name == ""
-        @@all.delete(ethnicity)
+    @@all.each do |minority_group|
+      if minority_group.name == ""
+        @@all.delete(minority_group)
       end
     end
     @@all
@@ -24,7 +24,7 @@ class MinorityScholarshipsCliApp::MinorityGroups
 
   def add_scholarship(scholarship)
     @scholarships << scholarship
-    scholarship.ethnicity = self
+    scholarship.minority_group = self
   end
 
 end

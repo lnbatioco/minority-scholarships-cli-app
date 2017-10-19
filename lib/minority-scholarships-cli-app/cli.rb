@@ -57,17 +57,17 @@ class MinorityScholarshipsCliApp::CLI
   end
 
   def print_minority_groups(input)
-    MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
-      puts "[#{index}] ".bold.colorize(:green) + "#{ethnicity.name}"
+    MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |minority_group, index|
+      puts "[#{index}] ".bold.colorize(:green) + "#{minority_group.name}"
     end
   end
 
   def print_minority_groups_with_valid_input(input)
-    MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
+    MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |minority_group, index|
       if index == input.to_i
-        puts "[x] #{ethnicity.name.upcase} - #{ethnicity.awards} AWARDS - #{ethnicity.total} TOTAL".bold.colorize(:green)
+        puts "[x] #{minority_group.name.upcase} - #{minority_group.awards} AWARDS - #{minority_group.total} TOTAL".bold.colorize(:green)
       else
-        puts "[#{index}] #{ethnicity.name}"
+        puts "[#{index}] #{minority_group.name}"
       end
     end
   end
@@ -91,11 +91,11 @@ class MinorityScholarshipsCliApp::CLI
 
   def view_more_scholarships(input)
     if input.to_i > 0 && input.to_i < 6
-      MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |ethnicity, index|
+      MinorityScholarshipsCliApp::MinorityGroups.all.each.with_index(1) do |minority_group, index|
         if index == input.to_i
           puts ""
-          puts "View more #{ethnicity.name} at:".colorize(:red)
-          puts "#{ethnicity.url}".colorize(:blue)
+          puts "View more #{minority_group.name} at:".colorize(:red)
+          puts "#{minority_group.url}".colorize(:blue)
           puts ""
         end
       end

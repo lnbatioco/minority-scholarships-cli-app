@@ -6,23 +6,23 @@ class MinorityScholarshipsCliApp::Scraper
 
   def self.make_minority_groups
     self.scrape_minority_groups.css("#scholarshipWrap .scholarshipBrief.mainCat.brick").each do |brick|
-      ethnicity = MinorityScholarshipsCliApp::MinorityGroups.new
-      ethnicity.name = brick.css("h3").css("a").text
-      ethnicity.awards = brick.css(".totalAvail").text.gsub("awards", "").strip
-      ethnicity.total = brick.css(".totalValue").text.gsub("total", "").strip
-      ethnicity.description = brick.css("p").text
+      minority_group = MinorityScholarshipsCliApp::MinorityGroups.new
+      minority_group.name = brick.css("h3").css("a").text
+      minority_group.awards = brick.css(".totalAvail").text.gsub("awards", "").strip
+      minority_group.total = brick.css(".totalValue").text.gsub("total", "").strip
+      minority_group.description = brick.css("p").text
 
-      if ethnicity.name == ""
-        ethnicity.url = nil
+      if minority_group.name == ""
+        minority_group.url = nil
       else
-        ethnicity.url = brick.css("h3").css("a").attribute("href").value
+        minority_group.url = brick.css("h3").css("a").attribute("href").value
       end
     end
   end
 
   def self.scrape_scholarships
-    MinorityScholarshipsCliApp::MinorityGroups.all.each do |ethnicity|
-      doc = Nokogiri::HTML(open(ethnicity.url))
+    MinorityScholarshipsCliApp::MinorityGroups.all.each do |minority_group|
+      doc = Nokogiri::HTML(open(minority_group.url))
       doc.css("#scholarshipWrap .scholarshipBrief.brick").each do |brick|
         scholarship = MinorityScholarshipsCliApp::Scholarships.new
         scholarship.name = brick.css("h3").text.strip
@@ -31,10 +31,10 @@ class MinorityScholarshipsCliApp::Scraper
         scholarship.url = brick.css("h3").css("a").attribute("href").value
         scholarship.amount = Nokogiri::HTML(open(scholarship.url)).css(".totalValue").text.gsub("awarded", "").strip
 
-        scholarship.ethnicity = ethnicity
-        ethnicity.add_scholarship(scholarship)
+        scholarship.minority_group = minority_group
+        minority_group.add_scholarship(scholarship)
       end
     end
   end
 
-end ## class END
+end
